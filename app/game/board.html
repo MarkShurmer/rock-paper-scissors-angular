@@ -1,0 +1,85 @@
+<div class="board">
+    <h3 class="player-title">Human</h3>
+    <h3 class="computer-title">Computer</h3>
+
+    <div class="player-rock" ng-click="boardController.turn('rock')"
+         ng-disabled="!boardController.isEnabled('rock', true)"
+         ng-class="boardController.isEnabled('rock', true) ? 'piece-enabled' : 'piece-disabled'">
+        <div class="piece-content" title="Rock">
+            <span>Rock</span>
+            <img src="assets/rock.jpg">
+        </div>
+    </div>
+
+    <div class="player-paper" ng-click="boardController.turn('paper')"
+         ng-disabled="!boardController.isEnabled('paper', true)"
+         ng-class="boardController.isEnabled('paper', true) ? 'piece-enabled' : 'piece-disabled'">
+        <div class="piece-content" title="Paper">
+            <span>Paper</span>
+            <img src="assets/paper.jpg">
+        </div>
+    </div>
+
+    <div class="player-scissors" ng-click="boardController.turn('scissors')"
+         ng-disabled="!boardController.isEnabled('scissors', true)"
+         ng-class="boardController.isEnabled('scissors', true) ? 'piece-enabled' : 'piece-disabled'">
+        <div class="piece-content" title="Scissors">
+            <span>Scissors</span>
+            <img src="assets/scissors.png">
+        </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="info-panel" ng-show="boardController.model.result">
+        <div class="info-panel-content">
+            <div>Player plays {{boardController.model.playerPlay}}</div>
+            <div>Computer plays {{boardController.model.computerPlay}}</div>
+            <div>{{boardController.model.result}}</div>
+        </div>
+    </div>
+
+    <div class="computer-rock" ng-class="boardController.isEnabled('rock', false) ? 'piece-enabled' : 'piece-disabled'">
+        <div class="piece-content">
+            <span>Rock</span>
+            <img src="assets/rock.jpg">
+        </div>
+    </div>
+
+    <div class="computer-paper"
+         ng-class="boardController.isEnabled('paper', false) ? 'piece-enabled' : 'piece-disabled'">
+        <div class="piece-content">
+            <span>Paper</span>
+            <img src="assets/paper.jpg">
+        </div>
+    </div>
+
+    <div class="computer-scissors"
+         ng-class="boardController.isEnabled('scissors', false) ? 'piece-enabled' : 'piece-disabled'">
+        <div class="piece-content">
+            <span>Scissors</span>
+            <img src="assets/scissors.png">
+        </div>
+    </div>
+
+    <div class="scores-section">
+        <h3>Results</h3>
+        <div>
+            <span>Plays</span>
+            <span>{{boardController.model.plays}}</span>
+        </div>
+        <div>
+            <span>Player has won</span>
+            <span>{{boardController.model.playerWins}}</span>
+        </div>
+        <div>
+            <span>Computer has won</span>
+            <span>{{boardController.model.computerWins}}</span>
+        </div>
+    </div>
+
+    <span class="instructions">
+        <p>Click on human piece to make that move</p>
+        <p>Computer will make move</p>
+        <p>Winner will be decided</p>
+    </span>
+</div>
